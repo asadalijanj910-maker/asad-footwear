@@ -1,0 +1,53 @@
+</section>
+
+<section class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80">
+<h3>Pink Ladies Shoes</h3>
+<p class="price">Rs. 2,499</p>
+<button class="add" onclick="addToCart('Pink Ladies Shoes')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80">
+<h3>Fancy Ladies Shoes</h3>
+<p class="price">Rs. 2,999</p>
+<button class="add" onclick="addToCart('Fancy Ladies Shoes')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=600&q=80">
+<h3>Beautiful Sandals</h3>
+<p class="price">Rs. 1,999</p>
+<button class="add" onclick="addToCart('Beautiful Sandals')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80">
+<h3>Party Wear Shoes</h3>
+<p class="price">Rs. 3,499</p>
+<button class="add" onclick="addToCart('Party Wear Shoes')">Add to Cart</button>
+</div>
+
+</section>
+
+<div id="cart">🛒 Cart: <span id="count">0</span></div>
+
+<footer>
+<p>© 2026 Asad Footwear</p>
+<p>WhatsApp par order karein 📲</p>
+</footer>
+
+<script>
+let count = 0;
+
+function addToCart(product){
+    count++;
+    document.getElementById("count").innerText = count;
+    alert(product + " cart mein add ho gaya!");
+}
+</script>
+
+</body>
+</html>
