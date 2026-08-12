@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asad Footwear store | Ladies Shoes</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fff7fa;color:#222}
+header{background:#111;color:white;padding:18px 15px;text-align:center;position:sticky;top:0;z-index:5}
+header h1{margin:0;font-size:28px}header p{margin:6px 0 0;color:#ffd6e5}
+.hero{padding:35px 18px;text-align:center;background:linear-gradient(135deg,#ffd6e5,#fff)}
+.hero h2{font-size:30px;margin:5px 0}.hero p{font-size:16px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:18px;max-width:900px;margin:auto}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 12px #0001;padding-bottom:12px}
+.card img{width:100%;height:180px;object-fit:cover;background:#eee}
+.card h3{margin:10px 10px 4px;font-size:17px}.price{margin:0 10px 10px;font-weight:bold;color:#d4145a}
+button{border:0;border-radius:10px;padding:10px 12px;cursor:pointer;font-weight:bold}
+.add{background:#111;color:white;margin-left:10px}.order{background:#25d366;color:white;margin:10px}
+#cart{position:fixed;right:15px;bottom:15px;background:#d4145a;color:white;border-radius:50px;padding:14px 18px;box-shadow:0 4px 15px #0003}
+footer{text-align:center;padding:25px;background:#111;color:white;margin-top:20px}
+@media(min-width:700px){.products{grid-template-columns:repeat(4,1fr)}.card img{height:210px}}
+</style>
+</head>
+<body>
+<header><h1>Asad Footwear 👠</h1><p>Beautiful Ladies Shoes & Sandals</p></header>
+<section class="hero"><h2>New Ladies Collection</h2><p>Pasand aaye to WhatsApp par order karein 📲</p></section>
+<main class="products" id="products"></main>
+<button id="cart" onclick="showCart()">🛒 Cart (<span id="count">0</span>)</button>
+<footer>© 2026 Asad Footwear | Cash on Delivery Available</footer>
+<script>
+const products=[
+["Ladies Khussa","Rs. 2,499","https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80"],
+["Fancy Sandal","Rs. 2,199","https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=700&q=80"],
+["Party Heels","Rs. 2,999","https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=700&q=80"],
+["Ladies Chappal","Rs. 1,799","https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=700&q=80"],
+["Elegant Heels","Rs. 2,699","https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=700&q=80"],
+["Casual Sandal","Rs. 1,999","https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=700&q=80"]
+];
+let cart=[];
+const box=document.getElementById("products");
+products.forEach((p,i)=>box.innerHTML+=`<div class="card"><img src="${p[2]}" alt="${p[0]}"><h3>${p[0]}</h3><p class="price">${p[1]}</p><button class="add" onclick="add(${i})">Add to Cart</button></div>`);
+function add(i){cart.push(products[i]);document.getElementById("count").textContent=cart.length;alert(products[i][0]+" cart mein add ho gaya.");}
+function showCart(){
+ if(!cart.length){alert("Cart abhi khaali hai.");return}
+ let text="Asad Footwear Order:%0A%0A";
+ cart.forEach((p,i)=>text+=(i+1)+". "+p[0]+" - "+p[1]+"%0A");
+ text+="%0AName:%0APhone:%0AAddress:";
+ window.open("https://wa.me/?text="+text,"_blank");
+}
+</script>
+</body>
+</html>
